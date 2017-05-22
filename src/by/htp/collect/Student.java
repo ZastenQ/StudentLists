@@ -1,6 +1,6 @@
 package by.htp.collect;
 
-public class Student {
+public class Student implements Comparable<Object> {
 
 	private String name;
 	private String dateBirth;
@@ -59,5 +59,11 @@ public class Student {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		int result = this.getName().compareToIgnoreCase(((Student) o).getName());
+		return result;
 	}
 }
